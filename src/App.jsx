@@ -22,7 +22,6 @@ function App() {
       <MemberSelect />
       <WriteLetter />
       <LetterList />
-      <Letter />
       <Footer />
     </>
   );
