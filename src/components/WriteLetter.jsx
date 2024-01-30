@@ -63,7 +63,7 @@ function WriteLetter() {
       <StMain>
         <StDiv>
           <StSpan>닉네임</StSpan>
-          <StInput style={{ width: "300px", height: "30px" }} />
+          <StInput style={{ width: "320px", height: "30px" }} />
           <StSelect>
             <option>JENNIE</option>
             <option>JISOO</option>
@@ -76,7 +76,14 @@ function WriteLetter() {
           <StInput style={{ width: "500px", height: "200px" }} />
         </StDiv>
         <StDiv>
-          <StBtn style={{ justifyContent: "flex-end" }}>팬레터 등록하기</StBtn>
+          <StBtn
+            style={{ justifyContent: "flex-end" }}
+            onClick={() => {
+              alert("팬레터가 등록 되었습니다.");
+            }}
+          >
+            팬레터 등록하기
+          </StBtn>
         </StDiv>
       </StMain>
     </StMainContainer>
