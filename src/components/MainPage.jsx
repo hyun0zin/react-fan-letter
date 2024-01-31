@@ -1,12 +1,12 @@
 import React from "react";
-import MemberSelect from "./MemberSelect";
-import WriteLetter from "./WriteLetter";
+import Nav from "./layout/Nav";
+import LetterForm from "./letters/LetterForm";
 
 function MainPage() {
   return (
     <div>
-      <MemberSelect />
-      <WriteLetter />
+      <Nav />
+      <LetterForm />
     </div>
   );
 }

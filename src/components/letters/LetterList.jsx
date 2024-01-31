@@ -1,12 +1,11 @@
 import React from "react";
-import { Router } from "react-router-dom";
-import Letter from "./Letter";
+import LetterItem from "./LetterItem";
 
 function LetterList() {
   return (
     <div>
       hahaha...
-      <Letter />
+      <LetterItem />
     </div>
   );
 }

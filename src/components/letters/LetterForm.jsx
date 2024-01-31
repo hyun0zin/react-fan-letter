@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 const StMainContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -60,7 +61,7 @@ const StBtn = styled.button`
     transition: 0.5s;
   }
 `;
-function WriteLetter() {
+function LetterForm() {
   return (
     <StMainContainer>
       <StMain>
@@ -92,4 +93,4 @@ function WriteLetter() {
   );
 }
 
-export default WriteLetter;
+export default LetterForm;

@@ -1,6 +1,4 @@
-import Letter from "components/Letter";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Stdiv = styled.div`
@@ -42,7 +40,7 @@ const StBtn = styled.button`
 
 const moveMemberPage = ["jennie", "jisoo", "rose", "lisa"];
 
-function MemberSelect() {
+function Nav() {
   // const navigate = useNavigate();
 
   const memberName = (name) => {
@@ -78,4 +76,4 @@ function MemberSelect() {
   );
 }
 
-export default MemberSelect;
+export default Nav;

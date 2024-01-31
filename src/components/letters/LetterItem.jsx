@@ -54,7 +54,7 @@ const StImg = styled.p`
   height: 100px;
 `;
 
-function Letter() {
+function LetterItem() {
   return (
     <StMainContainer>
       <StMain>
@@ -78,4 +78,4 @@ function Letter() {
   );
 }
 
-export default Letter;
+export default LetterItem;
