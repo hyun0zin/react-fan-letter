@@ -1,3 +1,4 @@
+import Letter from "components/Letter";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -42,7 +43,7 @@ const StBtn = styled.button`
 const moveMemberPage = ["jennie", "jisoo", "rose", "lisa"];
 
 function MemberSelect() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const memberName = (name) => {
     switch (name) {
@@ -65,41 +66,12 @@ function MemberSelect() {
           {moveMemberPage.map((name) => (
             <StBtn
               onClick={() => {
-                navigate(`/${name}`);
+                alert("멤버별로 펜레터가 떠야함.");
               }}
             >
               {memberName(name)}
             </StBtn>
           ))}
-
-          {/* <StBtn
-            onClick={() => {
-              navigate(`/jennie`);
-            }}
-          >
-            JENNIE
-          </StBtn>
-          <StBtn
-            onClick={() => {
-              navigate(`/jisoo`);
-            }}
-          >
-            JISOO
-          </StBtn>
-          <StBtn
-            onClick={() => {
-              navigate(`/rose`);
-            }}
-          >
-            ROSÉ
-          </StBtn>
-          <StBtn
-            onClick={() => {
-              navigate(`/lisa`);
-            }}
-          >
-            LISA
-          </StBtn> */}
         </StNav>
       </Stdiv>
     </>

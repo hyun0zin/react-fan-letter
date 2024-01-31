@@ -6,8 +6,8 @@ const StFooter = styled.footer`
   color: white;
   height: 5rem;
 
-  position: sticky;
-  bottom: 0;
+  /* position: sticky;
+  bottom: 0; */
 `;
 function Footer() {
   return <StFooter>footer 부분입니다</StFooter>;

@@ -16,13 +16,13 @@ const StHead = styled.header`
 `;
 
 const StH1 = styled.h1`
-  color: var(--color-blackpink);
+  color: #f7a7bb;
   font-size: xx-large;
   font-weight: 800;
 `;
 
 export const StImg = styled.img`
-  background-image: url(${logo});
+  width: 30px;
 `;
 
 function Header() {
@@ -30,7 +30,7 @@ function Header() {
     <>
       <StHead>
         <StH1>BLACKPINK</StH1>
-        <StImg src="src/assets/logo.png" />
+        {/* <StImg src="src/assets/logo.png" /> */}
       </StHead>
     </>
   );
