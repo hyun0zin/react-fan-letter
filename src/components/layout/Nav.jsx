@@ -38,37 +38,30 @@ const StBtn = styled.button`
   }
 `;
 
-const moveMemberPage = ["jennie", "jisoo", "rose", "lisa"];
+const moveMemberPage = ["JENNIE", "JISOO", "ROSE", "LISA"];
 
-function Nav() {
-  // const navigate = useNavigate();
-
+function Nav({ memberBtnClickHandler }) {
   const memberName = (name) => {
     switch (name) {
-      case "jennie":
+      case "JENNIE":
         return "JENNIE";
-      case "jisoo":
+      case "JISOO":
         return "JISOO";
-      case "rose":
+      case "ROSE":
         return "ROSÉ";
-      case "lisa":
+      case "LISA":
         return "LISA";
       default:
         return;
     }
   };
+
   return (
     <>
       <Stdiv>
         <StNav>
           {moveMemberPage.map((name) => (
-            <StBtn
-              onClick={() => {
-                alert("멤버별로 펜레터가 떠야함.");
-              }}
-            >
-              {memberName(name)}
-            </StBtn>
+            <StBtn onClick={memberBtnClickHandler}>{memberName(name)}</StBtn>
           ))}
         </StNav>
       </Stdiv>

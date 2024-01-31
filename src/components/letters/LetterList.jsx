@@ -1,11 +1,11 @@
-import React from "react";
 import LetterItem from "./LetterItem";
 
-function LetterList() {
+function LetterList({ data }) {
   return (
     <div>
-      hahaha...
-      <LetterItem />
+      {data.map((item) => {
+        return <LetterItem key={item.id} item={item} />;
+      })}
     </div>
   );
 }
