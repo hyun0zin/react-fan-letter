@@ -4,6 +4,7 @@ const StMainContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 const StMain = styled.main`
@@ -24,6 +25,8 @@ const StSpan = styled.span`
 const StInput = styled.input`
   border-color: transparent;
   border-radius: 10px;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
 `;
 
 const StDiv = styled.div`
@@ -63,7 +66,7 @@ function WriteLetter() {
       <StMain>
         <StDiv>
           <StSpan>닉네임</StSpan>
-          <StInput style={{ width: "320px", height: "30px" }} />
+          <StInput width="320px" height="30px" />
           <StSelect>
             <option>JENNIE</option>
             <option>JISOO</option>
@@ -73,11 +76,10 @@ function WriteLetter() {
         </StDiv>
         <StDiv>
           <StSpan>내용</StSpan>
-          <StInput style={{ width: "500px", height: "200px" }} />
+          <StInput width="500px" height="200px" />
         </StDiv>
-        <StDiv>
+        <StDiv style={{ justifyContent: "flex-end", marginRight: "2rem" }}>
           <StBtn
-            style={{ justifyContent: "flex-end" }}
             onClick={() => {
               alert("팬레터가 등록 되었습니다.");
             }}

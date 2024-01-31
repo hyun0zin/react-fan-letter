@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import logo from "assets/logo.png";
 
 const StHead = styled.header`
   background-color: black;
 
   height: 5rem;
 
-  position: sticky;
-  top: 0;
+  /* position: sticky;
+  top: 0; */
 
   display: flex;
   justify-content: center;
@@ -15,11 +16,13 @@ const StHead = styled.header`
 `;
 
 const StH1 = styled.h1`
-  color: #f7a7bb;
+  color: var(--color-blackpink);
+  font-size: xx-large;
+  font-weight: 800;
+`;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const StImg = styled.img`
+  background-image: url(${logo});
 `;
 
 function Header() {
@@ -27,6 +30,7 @@ function Header() {
     <>
       <StHead>
         <StH1>BLACKPINK</StH1>
+        <StImg src="src/assets/logo.png" />
       </StHead>
     </>
   );
