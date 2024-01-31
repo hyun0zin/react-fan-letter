@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import BlackPinkLogo from "../../assets/images/logo.png";
 
 const StHead = styled.header`
   background-color: black;
@@ -21,8 +22,12 @@ const StH1 = styled.h1`
   font-weight: 800;
 `;
 
-export const StImg = styled.img`
-  width: 30px;
+const StImg = styled.img.attrs({
+  src: BlackPinkLogo,
+  alt: "유튜브 로고",
+})`
+  height: 30px;
+  cursor: pointer;
 `;
 
 function Header() {
@@ -30,9 +35,8 @@ function Header() {
     <>
       <StHead>
         <Link to="/" style={{ textDecoration: "none" }}>
-          <StH1>BLACKPINK</StH1>
+          <StImg />
         </Link>
-        {/* <StImg src="src/assets/logo.png" /> */}
       </StHead>
     </>
   );
