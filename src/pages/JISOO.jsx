@@ -1,4 +1,3 @@
-import Letter from "components/letters/LetterItem";
 import React from "react";
 import styled from "styled-components";
 
