@@ -61,7 +61,9 @@ function Nav({ memberBtnClickHandler }) {
       <Stdiv>
         <StNav>
           {moveMemberPage.map((name) => (
-            <StBtn onClick={memberBtnClickHandler}>{memberName(name)}</StBtn>
+            <StBtn key={name} onClick={() => memberBtnClickHandler(name)}>
+              {memberName(name)}
+            </StBtn>
           ))}
         </StNav>
       </Stdiv>

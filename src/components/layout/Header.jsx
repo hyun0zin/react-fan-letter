@@ -16,17 +16,11 @@ const StHead = styled.header`
   align-items: center;
 `;
 
-const StH1 = styled.h1`
-  color: #f7a7bb;
-  font-size: xx-large;
-  font-weight: 800;
-`;
-
 const StImg = styled.img.attrs({
   src: BlackPinkLogo,
   alt: "유튜브 로고",
 })`
-  height: 30px;
+  height: 35px;
   cursor: pointer;
 `;
 

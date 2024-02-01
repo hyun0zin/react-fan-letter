@@ -1,4 +1,4 @@
-import IndividualLetter from "components/letters/IndividualLetter";
+import DetailPage from "components/DetailPage";
 import React from "react";
 import styled from "styled-components";
 
@@ -15,7 +15,7 @@ function JENNIE() {
     <>
       <StDiv></StDiv>
       <p>JENNIE's Letter</p>
-      <IndividualLetter />
+      <DetailPage />
     </>
   );
 }

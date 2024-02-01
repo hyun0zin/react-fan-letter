@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import moment from "moment";
+import "moment/locale/ko";
 
 const StMainContainer = styled.div`
   display: flex;
@@ -8,7 +10,7 @@ const StMainContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-const StMain = styled.main`
+const StForm = styled.form`
   background-color: black;
   width: 650px;
   height: 330px;
@@ -61,34 +63,89 @@ const StBtn = styled.button`
     transition: 0.5s;
   }
 `;
-function LetterForm() {
+function LetterForm({ addLetterSubmit }) {
+  // 실시간 시간 불러오기
+  // const nowTime = moment().format("YYYY-MM-DD HH:mm:ss");
+  const date = Date.now();
+
+  // 멤버 선택하기
+  const memberList = ["JENNIE", "JISOO", "ROSÉ", "LISA"];
+  const [selectedMember, setSelectedMember] = useState("");
+
+  const onChangeHandler = (event) => {
+    const selectedMember = event.target.value;
+    setSelectedMember(selectedMember);
+  };
+
+  // 팬레터 추가하기
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    // console.log(event.target.nickname.value);
+    const nickname = event.target.nickname.value;
+    const content = event.target.content.value;
+
+    //빈 input 추가 막기
+    if (!nickname && content) {
+      alert("닉네임을 입력해주세요.");
+      return;
+    } else if (nickname && !content) {
+      alert("내용을 입력해주세요.");
+      return;
+    } else if (!nickname && !content) {
+      alert("닉네임과 내용을 입력해주세요.");
+      return;
+    }
+
+    addLetterSubmit({
+      createdAt: date,
+      nickname,
+      avatar:
+        "https://www.iprcenter.gov/image-repository/blank-profile-picture.png/@@images/image.png",
+      content,
+      writedTo: selectedMember,
+      id: crypto.randomUUID(),
+    });
+
+    event.target.reset();
+  };
+
   return (
     <StMainContainer>
-      <StMain>
+      <StForm onSubmit={submitHandler}>
         <StDiv>
           <StSpan>닉네임</StSpan>
-          <StInput width="320px" height="30px" />
-          <StSelect>
-            <option>JENNIE</option>
-            <option>JISOO</option>
-            <option>ROSÉ</option>
-            <option>LISA</option>
+          <StInput
+            type="text"
+            placeholder="최대 20글자까지 작성할 수 있습니다."
+            name="nickname"
+            width="320px"
+            height="30px"
+          />
+          <StSelect onChange={onChangeHandler} value={selectedMember}>
+            {memberList.map((name) => {
+              return (
+                <option key={name} value={name}>
+                  {name}
+                </option>
+              );
+            })}
           </StSelect>
         </StDiv>
         <StDiv>
           <StSpan>내용</StSpan>
-          <StInput width="500px" height="200px" />
+          <StInput
+            type="text"
+            placeholder="최대 100글자 이내로 입력해주세요."
+            name="content"
+            width="500px"
+            height="200px"
+          />
         </StDiv>
         <StDiv style={{ justifyContent: "flex-end", marginRight: "2rem" }}>
-          <StBtn
-            onClick={() => {
-              alert("팬레터가 등록 되었습니다.");
-            }}
-          >
-            팬레터 등록하기
-          </StBtn>
+          <StBtn>팬레터 등록하기</StBtn>
         </StDiv>
-      </StMain>
+      </StForm>
     </StMainContainer>
   );
 }

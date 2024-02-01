@@ -39,7 +39,7 @@ const StImgGithub = styled(githubLogo)`
 
 const StImgTistory = styled.img.attrs({
   src: tistoryLogo,
-  alt: "유튜브 로고",
+  alt: "티스토리 로고",
 })`
   height: 45px;
   cursor: pointer;

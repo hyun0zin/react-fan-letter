@@ -1,9 +1,12 @@
 import LetterItem from "./LetterItem";
 
-function LetterList({ data }) {
+function LetterList({ letters, writedTo }) {
+  const filteredLetters = letters.filter((letter) =>
+    writedTo ? letter.writedTo === writedTo : true
+  );
   return (
     <div>
-      {data.map((item) => {
+      {filteredLetters.map((item) => {
         return <LetterItem key={item.id} item={item} />;
       })}
     </div>

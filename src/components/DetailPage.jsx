@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-function IndividualLetter() {
+function DetailPage() {
   const StMainContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -61,8 +61,8 @@ function IndividualLetter() {
   const StImg = styled.img`
     /* background-color: white; */
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
   `;
 
   const StBtn = styled.button`
@@ -91,7 +91,10 @@ function IndividualLetter() {
           <StDiv
             style={{ flexDirection: "row", width: "500px", height: "50px" }}
           >
-            <StImg src="프로필" alt="프로필 사진" />
+            <StImg
+              src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/36.jpg"
+              alt="프로필 사진"
+            />
             <StSpan>닉네임</StSpan>
             <StSpan>날짜</StSpan>
           </StDiv>
@@ -108,4 +111,4 @@ function IndividualLetter() {
   );
 }
 
-export default IndividualLetter;
+export default DetailPage;
