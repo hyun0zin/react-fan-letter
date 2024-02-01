@@ -56,6 +56,7 @@ const StBtn = styled.button`
   font-size: medium;
   color: black;
   box-shadow: 0px 0px 20px black;
+  cursor: pointer;
 
   &:hover {
     background-color: white;

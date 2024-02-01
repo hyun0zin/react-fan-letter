@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StMainContainer = styled.div`
@@ -20,6 +21,12 @@ const StMain = styled.main`
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
+
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const StSpan = styled.span`
@@ -66,11 +73,18 @@ function LetterItem({ item }) {
     minute: "numeric",
     second: "numeric",
   });
-  // console.log(formattedData);
+
+  const navigate = useNavigate();
+
+  const LetterClickHandler = () => {
+    if (item.writedTo === writedTo) {
+      navigate(`/${writedTo}`);
+    }
+  };
 
   return (
     <StMainContainer>
-      <StMain>
+      <StMain onClick={LetterClickHandler} key={item}>
         <StImgContainer>
           <StImg src={avatar} alt="프로필 사진" />
         </StImgContainer>
