@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StMainContainer = styled.div`
@@ -48,6 +49,12 @@ const StP = styled.p`
   width: 500px;
   height: 250px;
 `;
+const StTextarea = styled.textarea`
+  background-color: white;
+  border-radius: 10px;
+  width: 500px;
+  height: 250px;
+`;
 
 const StDiv = styled.div`
   padding: 10px;
@@ -81,8 +88,58 @@ const StBtn = styled.button`
     transition: 0.5s;
   }
 `;
-function DetailPage({ foundData }) {
-  const { writedTo, avatar, nickname, formattedData, content } = foundData;
+function DetailPage({ letters, foundData, removeBtn, updateBtn }) {
+  const { writedTo, avatar, nickname, formattedData, content, id, isUpdate } =
+    foundData;
+  const navigate = useNavigate();
+
+  // letter 삭제하기
+  const deleteBtnClickHandler = () => {
+    removeBtn(id);
+    alert("해당 팬레터가 삭제되었습니다");
+    navigate(`/`);
+  };
+
+  // letter 수정하기
+  const [isUpdateContent, setIsUpdateContent] = useState(content);
+  // const [isUpate, setIsUpdate] = useState(false);
+  console.log(letters);
+  // 수정하기 <-> 수정 완료 버튼 설정
+  const updateBtnClickHandler = (letter) => {
+    if (isUpdate === false) {
+      updateBtn(id);
+    } else {
+      // isUpdate: false;
+      alert("해당 팬레터가 수정되었습니다");
+      navigate(`/`);
+    }
+  };
+
+  // 수정하기 눌렀을 때, textarea 나옴 / 다시 수정 완료 시 p태그로 돌아가기.
+  const updateContent = () => {
+    // const isUpdateHandler = letters.map((letter) => {
+    //   if (letter.id === id) {
+    //     return { ...letter, content: isUpdateContent };
+    //   }
+    //   return letter;
+    // });
+    // setIsUpdateContent(isUpdateHandler);
+
+    if (isUpdate === false) {
+      return <StP>{isUpdateContent}</StP>;
+    } else {
+      return (
+        <StTextarea
+          value={isUpdateContent}
+          onChange={(e) => setIsUpdateContent(e.target.value)}
+        >
+          {isUpdateContent}
+        </StTextarea>
+      );
+    }
+  };
+
+  // DetailPage로 들어왔을 때, 화면 위치 상단으로 고정
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -99,12 +156,12 @@ function DetailPage({ foundData }) {
             <StSpan>{nickname}</StSpan>
             <StSpan>{formattedData}</StSpan>
           </StDiv>
-          <StDiv>
-            <StP>{content}</StP>
-          </StDiv>
+          <StDiv>{updateContent()}</StDiv>
           <StDiv style={{ gap: "2rem" }}>
-            <StBtn>수정하기</StBtn>
-            <StBtn>삭제하기</StBtn>
+            <StBtn onClick={updateBtnClickHandler}>
+              {isUpdate ? "수정 완료" : "수정하기"}
+            </StBtn>
+            <StBtn onClick={deleteBtnClickHandler}>삭제하기</StBtn>
           </StDiv>
         </StMain>
       </StMainContainer>

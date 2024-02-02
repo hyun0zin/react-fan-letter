@@ -18,18 +18,21 @@ const StDiv = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 `;
-function JENNIE({ letters }) {
+function JENNIE({ letters, removeBtn, updateBtn }) {
   const params = useParams();
 
   //find
-  const foundData = letters.find((item) => {
-    return item.id === params.id;
-  });
+  const foundData = letters.find((item) => item.id === params.id);
 
   return (
     <StDivContainer>
       <StDiv></StDiv>
-      <DetailPage foundData={foundData} />
+      <DetailPage
+        letters={letters}
+        foundData={foundData}
+        removeBtn={removeBtn}
+        updateBtn={updateBtn}
+      />
     </StDivContainer>
   );
 }

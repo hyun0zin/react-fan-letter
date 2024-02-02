@@ -13,8 +13,6 @@ function MainPage({ letters, setLetters }) {
 
   console.log(letters);
 
-  // const newLettersList = letters;
-
   // 멤버 이름 누르면 해당 카드만 filtering 되어 뜨게 하기
   const memberBtnClickHandler = (writedTo) => {
     setWritedTo(writedTo);

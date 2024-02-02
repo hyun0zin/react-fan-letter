@@ -107,6 +107,7 @@ function LetterForm({ addLetterSubmit }) {
       content,
       writedTo: selectedMember,
       id: uuidv4(),
+      isUpdate: false,
     });
 
     event.target.reset();

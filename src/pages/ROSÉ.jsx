@@ -19,7 +19,7 @@ const StDiv = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 `;
-function ROSÉ({ letters }) {
+function ROSÉ({ letters, removeBtn, updateBtn }) {
   const params = useParams();
 
   //find
@@ -29,7 +29,11 @@ function ROSÉ({ letters }) {
   return (
     <StDivContainer>
       <StDiv></StDiv>
-      <DetailPage foundData={foundData} />
+      <DetailPage
+        foundData={foundData}
+        removeBtn={removeBtn}
+        updateBtn={updateBtn}
+      />
     </StDivContainer>
   );
 }
