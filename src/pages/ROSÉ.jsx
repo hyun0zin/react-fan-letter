@@ -1,6 +1,9 @@
 import DetailPage from "components/DetailPage";
 import React from "react";
 import styled from "styled-components";
+
+import { useParams } from "react-router-dom";
+
 const StDivContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -16,13 +19,19 @@ const StDiv = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 `;
-function ROSE() {
+function ROSÉ({ letters }) {
+  const params = useParams();
+
+  //find
+  const foundData = letters.find((item) => {
+    return item.id === params.id;
+  });
   return (
     <StDivContainer>
       <StDiv></StDiv>
-      <DetailPage />
+      <DetailPage foundData={foundData} />
     </StDivContainer>
   );
 }
 
-export default ROSE;
+export default ROSÉ;

@@ -39,7 +39,7 @@ const StBtn = styled.button`
   }
 `;
 
-const moveMemberPage = ["JENNIE", "JISOO", "ROSE", "LISA"];
+const moveMemberPage = ["JENNIE", "JISOO", "ROSÉ", "LISA"];
 
 function Nav({ memberBtnClickHandler }) {
   const memberName = (name) => {
@@ -48,7 +48,7 @@ function Nav({ memberBtnClickHandler }) {
         return "JENNIE";
       case "JISOO":
         return "JISOO";
-      case "ROSE":
+      case "ROSÉ":
         return "ROSÉ";
       case "LISA":
         return "LISA";

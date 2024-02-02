@@ -81,7 +81,8 @@ const StBtn = styled.button`
     transition: 0.5s;
   }
 `;
-function DetailPage() {
+function DetailPage({ foundData }) {
+  const { writedTo, avatar, nickname, formattedData, content } = foundData;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -90,19 +91,16 @@ function DetailPage() {
     <>
       <StMainContainer>
         <StMain>
-          <StTopP>{writedTo}</StTopP>
+          <StTopP>To.{writedTo}</StTopP>
           <StDiv
             style={{ flexDirection: "row", width: "500px", height: "50px" }}
           >
-            <StImg
-              src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/36.jpg"
-              alt="프로필 사진"
-            />
-            <StSpan>닉네임</StSpan>
-            <StSpan>날짜</StSpan>
+            <StImg src={avatar} alt="프로필 사진" />
+            <StSpan>{nickname}</StSpan>
+            <StSpan>{formattedData}</StSpan>
           </StDiv>
           <StDiv>
-            <StP>내용</StP>
+            <StP>{content}</StP>
           </StDiv>
           <StDiv style={{ gap: "2rem" }}>
             <StBtn>수정하기</StBtn>

@@ -7,7 +7,7 @@ function LetterList({ letters, writedTo }) {
   return (
     <div>
       {filteredLetters.map((item) => {
-        return <LetterItem key={item.id} item={item} />;
+        return <LetterItem key={item.id} item={item} letters={letters} />;
       })}
     </div>
   );

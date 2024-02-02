@@ -1,6 +1,9 @@
 import DetailPage from "components/DetailPage";
-import React, { useEffect } from "react";
+import React from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import fakeData from "assets/json/fakeData";
+
 const StDivContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -16,11 +19,17 @@ const StDiv = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 `;
-function JISOO({ item }) {
+function JISOO({ letters }) {
+  const params = useParams();
+
+  //find
+  const foundData = letters.find((item) => {
+    return item.id === params.id;
+  });
   return (
     <StDivContainer>
       <StDiv></StDiv>
-      <DetailPage />
+      <DetailPage foundData={foundData} />
     </StDivContainer>
   );
 }

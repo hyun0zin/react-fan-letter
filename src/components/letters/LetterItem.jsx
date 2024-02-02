@@ -61,7 +61,7 @@ const StImg = styled.img`
   height: 100px;
 `;
 
-function LetterItem({ item }) {
+function LetterItem({ item, letters }) {
   const { avatar, content, createdAt, id, nickname, writedTo } = item;
 
   const rawData = item.createdAt;
@@ -78,13 +78,13 @@ function LetterItem({ item }) {
 
   const LetterClickHandler = () => {
     if (item.writedTo === writedTo) {
-      navigate(`/${writedTo}`);
+      navigate(`/${item.writedTo}/${item.id}`);
     }
   };
 
   return (
     <StMainContainer>
-      <StMain onClick={LetterClickHandler} key={item}>
+      <StMain onClick={LetterClickHandler} key={item.id} letters={letters}>
         <StImgContainer>
           <StImg src={avatar} alt="프로필 사진" />
         </StImgContainer>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import moment from "moment";
 import "moment/locale/ko";
@@ -111,6 +111,23 @@ function LetterForm({ addLetterSubmit }) {
     event.target.reset();
   };
 
+  // 각각 input에 focus 옮겨가기
+  // useRef 적용해보기
+  const nicknameRef = useRef("");
+  const contentRef = useRef("");
+
+  const [nickname, setNickname] = useState("");
+
+  useEffect(() => {
+    nicknameRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    if (nickname.length >= 20) {
+      contentRef.current.focus();
+    }
+  }, [nickname]);
+
   return (
     <StMainContainer>
       <StForm onSubmit={submitHandler}>
@@ -120,6 +137,11 @@ function LetterForm({ addLetterSubmit }) {
             type="text"
             placeholder="최대 20글자까지 작성할 수 있습니다."
             name="nickname"
+            ref={nicknameRef}
+            value={nickname}
+            onChange={(e) => {
+              setNickname(e.target.value);
+            }}
             width="320px"
             height="30px"
           />
@@ -139,6 +161,7 @@ function LetterForm({ addLetterSubmit }) {
             type="text"
             placeholder="최대 100글자 이내로 입력해주세요."
             name="content"
+            ref={contentRef}
             width="500px"
             height="200px"
           />
