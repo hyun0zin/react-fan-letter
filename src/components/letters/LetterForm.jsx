@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import moment from "moment";
 import "moment/locale/ko";
+import { v4 as uuidv4 } from "uuid";
 
 const StMainContainer = styled.div`
   display: flex;
@@ -105,7 +106,7 @@ function LetterForm({ addLetterSubmit }) {
         "https://www.iprcenter.gov/image-repository/blank-profile-picture.png/@@images/image.png",
       content,
       writedTo: selectedMember,
-      id: crypto.randomUUID(),
+      id: uuidv4(),
     });
 
     event.target.reset();
