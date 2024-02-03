@@ -88,7 +88,13 @@ const StBtn = styled.button`
     transition: 0.5s;
   }
 `;
-function DetailPage({ letters, foundData, removeBtn, updateBtn }) {
+function DetailPage({
+  letters,
+  foundData,
+  removeBtn,
+  updateBtn,
+  updatedLetters,
+}) {
   const { writedTo, avatar, nickname, formattedData, content, id, isUpdate } =
     foundData;
   const navigate = useNavigate();
@@ -102,14 +108,22 @@ function DetailPage({ letters, foundData, removeBtn, updateBtn }) {
 
   // letter 수정하기
   const [isUpdateContent, setIsUpdateContent] = useState(content);
-  // const [isUpate, setIsUpdate] = useState(false);
-  console.log(letters);
+  const [isUpate, setIsUpdate] = useState(false);
+
   // 수정하기 <-> 수정 완료 버튼 설정
-  const updateBtnClickHandler = (letter) => {
-    if (isUpdate === false) {
-      updateBtn(id);
+  const updateBtnClickHandler = () => {
+    if (!isUpdate) {
+      setIsUpdate(true);
     } else {
-      // isUpdate: false;
+      const isUpdateHandler = letters.map((letter) => {
+        if (letter.id === id) {
+          return { ...letter, content: isUpdateContent };
+        }
+        return letter;
+      });
+      updateBtn(id);
+
+      setIsUpdate(isUpdateHandler);
       alert("해당 팬레터가 수정되었습니다");
       navigate(`/`);
     }
@@ -117,15 +131,7 @@ function DetailPage({ letters, foundData, removeBtn, updateBtn }) {
 
   // 수정하기 눌렀을 때, textarea 나옴 / 다시 수정 완료 시 p태그로 돌아가기.
   const updateContent = () => {
-    // const isUpdateHandler = letters.map((letter) => {
-    //   if (letter.id === id) {
-    //     return { ...letter, content: isUpdateContent };
-    //   }
-    //   return letter;
-    // });
-    // setIsUpdateContent(isUpdateHandler);
-
-    if (isUpdate === false) {
+    if (!isUpdate) {
       return <StP>{isUpdateContent}</StP>;
     } else {
       return (

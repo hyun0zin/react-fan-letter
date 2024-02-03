@@ -33,6 +33,10 @@ const Router = () => {
     setLetters(updatedLetters);
   };
 
+  const updatedLetters = (updatedLetters) => {
+    setLetters(updatedLetters);
+  };
+
   return (
     <BrowserRouter>
       <Layout>
@@ -48,6 +52,7 @@ const Router = () => {
                 letters={letters}
                 removeBtn={removeBtn}
                 updateBtn={updateBtn}
+                updatedLetters={updatedLetters}
               />
             }
           />

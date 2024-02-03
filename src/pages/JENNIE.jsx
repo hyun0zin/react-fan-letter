@@ -18,7 +18,7 @@ const StDiv = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 `;
-function JENNIE({ letters, removeBtn, updateBtn }) {
+function JENNIE({ letters, removeBtn, updateBtn, updatedLetters }) {
   const params = useParams();
 
   //find
@@ -32,6 +32,7 @@ function JENNIE({ letters, removeBtn, updateBtn }) {
         foundData={foundData}
         removeBtn={removeBtn}
         updateBtn={updateBtn}
+        updatedLetters={updatedLetters}
       />
     </StDivContainer>
   );
