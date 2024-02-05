@@ -72,7 +72,7 @@ function LetterForm({ addLetterSubmit }) {
 
   // 멤버 선택하기
   const memberList = ["JENNIE", "JISOO", "ROSÉ", "LISA"];
-  const [selectedMember, setSelectedMember] = useState("");
+  const [selectedMember, setSelectedMember] = useState("JENNIE");
 
   const onChangeHandler = (event) => {
     const selectedMember = event.target.value;
