@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BlackPinkLogo from "../../assets/images/logo.png";
 
 const StHead = styled.header`
@@ -25,12 +25,16 @@ const StImg = styled.img.attrs({
 `;
 
 function Header() {
+  const navigate = useNavigate();
+  const logeClickEvent = () => {
+    navigate("/");
+    window.location.reload();
+  };
+
   return (
     <>
       <StHead>
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <StImg />
-        </Link>
+        <StImg onClick={logeClickEvent} />
       </StHead>
     </>
   );
