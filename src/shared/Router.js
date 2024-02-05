@@ -65,6 +65,7 @@ const Router = () => {
                   letters={letters}
                   removeBtn={removeBtn}
                   updateBtn={updateBtn}
+                  updatedLetters={updatedLetters}
                 />
               }
             />
@@ -75,6 +76,7 @@ const Router = () => {
                   letters={letters}
                   removeBtn={removeBtn}
                   updateBtn={updateBtn}
+                  updatedLetters={updatedLetters}
                 />
               }
             />
@@ -85,6 +87,7 @@ const Router = () => {
                   letters={letters}
                   removeBtn={removeBtn}
                   updateBtn={updateBtn}
+                  updatedLetters={updatedLetters}
                 />
               }
             />
