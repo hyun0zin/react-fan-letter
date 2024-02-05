@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import backgroungImg from "../../assets/images/blackpink_img.webp";
 
 const Stdiv = styled.div`
-  background-image: url("https://i.namu.wiki/i/YuMgn9KKCnJMgc_KAWb3hiBNPbzxIDctMpP9MOg7QvUHWPttKBRECoT-PzfmibDaGshdNHJy3TGN744mvwOyp1PQ6jRI-5xJ9N80ju0eg0CbbI9s646fY-uCfHY-lblWLKEaoLcZbAxT71gr4db8wg.webp");
+  background-image: url(${backgroungImg});
   background-size: contain;
   /* background-repeat: no-repeat; */
   background-position: center;
