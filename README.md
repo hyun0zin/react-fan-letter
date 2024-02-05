@@ -1,7 +1,7 @@
 <h1>💌 그룹 아티스트 Fan Letter 만들기</h1>
 
-<div style="display:flex" ><img src="../react-fan-letter/src/assets/images/mainPage.png" />
-<img src="../react-fan-letter/src/assets/images/detailPage.png"/></div>
+<div style="display:flex" ><img src="./../react-fan-letter/src/assets/images/mainPage.png" />
+<img src="./../react-fan-letter/src/assets/images/detailPage.png"/></div>
 
 <br>
 
@@ -32,7 +32,7 @@
 
 ### **`component` 구조 확인하기**
 
-<img src="../react-fan-letter/src/assets/images/components.png">
+<img src="./../react-fan-letter/src/assets/images/components.png">
 
 <br>
 
