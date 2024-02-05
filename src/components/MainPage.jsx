@@ -7,6 +7,7 @@ import { Context } from "context/Context";
 function MainPage() {
   const data = useContext(Context);
   const { letters, setLetters } = data;
+
   // console.log(data);
 
   const [writedTo, setWritedTo] = useState("");
@@ -16,7 +17,7 @@ function MainPage() {
     setLetters((letters) => [newLetter, ...letters]);
   };
 
-  console.log(letters);
+  // console.log(letters);
 
   // 멤버 이름 누르면 해당 카드만 filtering 되어 뜨게 하기
   const memberBtnClickHandler = (writedTo) => {
@@ -25,9 +26,9 @@ function MainPage() {
 
   return (
     <>
-      <Nav letters={letters} memberBtnClickHandler={memberBtnClickHandler} />
+      <Nav memberBtnClickHandler={memberBtnClickHandler} />
       <LetterForm addLetterSubmit={addLetterSubmit} />
-      <LetterList letters={letters} writedTo={writedTo} />
+      <LetterList writedTo={writedTo} />
     </>
   );
 }

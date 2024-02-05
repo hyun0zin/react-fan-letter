@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import { Context } from "context/Context";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -61,8 +62,11 @@ const StImg = styled.img`
   height: 100px;
 `;
 
-function LetterItem({ item, letters }) {
-  const { avatar, content, createdAt, id, nickname, writedTo } = item;
+function LetterItem({ item }) {
+  const data = useContext(Context);
+  const { letters } = data;
+
+  const { avatar, content, nickname, writedTo } = item;
 
   const rawData = item.createdAt;
   const formattedData = new Date(rawData).toLocaleDateString("ko-KR", {

@@ -22,6 +22,7 @@ const StDiv = styled.div`
 function JENNIE() {
   const data = useContext(Context);
   const { letters } = data;
+
   const params = useParams();
 
   //find
