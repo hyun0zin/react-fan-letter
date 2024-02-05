@@ -42,6 +42,8 @@ const StP = styled.p`
   border-radius: 10px;
   width: 500px;
   height: 130px;
+
+  padding: 3px;
 `;
 
 const StDiv = styled.div`
