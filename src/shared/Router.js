@@ -7,6 +7,7 @@ import Layout from "components/layout/Layout";
 import MainPage from "components/MainPage";
 import { useState } from "react";
 import fakeData from "../assets/json/fakeData.json";
+import { Context } from "context/Context";
 
 const Router = () => {
   const [letters, setLetters] = useState(fakeData);
@@ -39,55 +40,57 @@ const Router = () => {
 
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route
-            path="/"
-            element={<MainPage letters={letters} setLetters={setLetters} />}
-          />
-          <Route
-            path="/JENNIE/:id"
-            element={
-              <JENNIE
-                letters={letters}
-                removeBtn={removeBtn}
-                updateBtn={updateBtn}
-                updatedLetters={updatedLetters}
-              />
-            }
-          />
-          <Route
-            path="/JISOO/:id"
-            element={
-              <JISOO
-                letters={letters}
-                removeBtn={removeBtn}
-                updateBtn={updateBtn}
-              />
-            }
-          />
-          <Route
-            path="/ROSÉ/:id"
-            element={
-              <ROSÉ
-                letters={letters}
-                removeBtn={removeBtn}
-                updateBtn={updateBtn}
-              />
-            }
-          />
-          <Route
-            path="/LISA/:id"
-            element={
-              <LISA
-                letters={letters}
-                removeBtn={removeBtn}
-                updateBtn={updateBtn}
-              />
-            }
-          />
-        </Routes>
-      </Layout>
+      <Context.Provider>
+        <Layout>
+          <Routes>
+            <Route
+              path="/"
+              element={<MainPage letters={letters} setLetters={setLetters} />}
+            />
+            <Route
+              path="/JENNIE/:id"
+              element={
+                <JENNIE
+                  letters={letters}
+                  removeBtn={removeBtn}
+                  updateBtn={updateBtn}
+                  updatedLetters={updatedLetters}
+                />
+              }
+            />
+            <Route
+              path="/JISOO/:id"
+              element={
+                <JISOO
+                  letters={letters}
+                  removeBtn={removeBtn}
+                  updateBtn={updateBtn}
+                />
+              }
+            />
+            <Route
+              path="/ROSÉ/:id"
+              element={
+                <ROSÉ
+                  letters={letters}
+                  removeBtn={removeBtn}
+                  updateBtn={updateBtn}
+                />
+              }
+            />
+            <Route
+              path="/LISA/:id"
+              element={
+                <LISA
+                  letters={letters}
+                  removeBtn={removeBtn}
+                  updateBtn={updateBtn}
+                />
+              }
+            />
+          </Routes>
+        </Layout>
+      </Context.Provider>
     </BrowserRouter>
   );
 };

@@ -95,8 +95,7 @@ function DetailPage({
   updateBtn,
   updatedLetters,
 }) {
-  const { writedTo, avatar, nickname, formattedData, content, id, isUpdate } =
-    foundData;
+  const { writedTo, avatar, nickname, formattedData, content, id } = foundData;
   const navigate = useNavigate();
 
   // letter 삭제하기
@@ -108,22 +107,24 @@ function DetailPage({
 
   // letter 수정하기
   const [isUpdateContent, setIsUpdateContent] = useState(content);
-  const [isUpate, setIsUpdate] = useState(false);
+  const [isUpdate, setIsUpdate] = useState(false);
 
   // 수정하기 <-> 수정 완료 버튼 설정
   const updateBtnClickHandler = () => {
     if (!isUpdate) {
       setIsUpdate(true);
     } else {
-      const isUpdateHandler = letters.map((letter) => {
+      const isUpdateNewArr = letters.map((letter) => {
         if (letter.id === id) {
           return { ...letter, content: isUpdateContent };
         }
         return letter;
       });
-      updateBtn(id);
 
-      setIsUpdate(isUpdateHandler);
+      updateBtn(id);
+      updatedLetters(isUpdateNewArr);
+
+      setIsUpdate(false);
       alert("해당 팬레터가 수정되었습니다");
       navigate(`/`);
     }
@@ -138,9 +139,7 @@ function DetailPage({
         <StTextarea
           value={isUpdateContent}
           onChange={(e) => setIsUpdateContent(e.target.value)}
-        >
-          {isUpdateContent}
-        </StTextarea>
+        />
       );
     }
   };
