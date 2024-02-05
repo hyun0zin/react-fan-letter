@@ -30,9 +30,11 @@
 
 ## **컴포넌트 구조**
 
-### **`component`**
+### **`component` 구조 확인하기**
 
-    <br>
+<img src="../react-fan-letter/src/assets/images/components.png">
+
+<br>
 
 ## **어려웠던 점 🧐**
 
