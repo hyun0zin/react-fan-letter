@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Nav from "./layout/Nav";
 import LetterForm from "./letters/LetterForm";
 import LetterList from "./letters/LetterList";
+import { Context } from "context/Context";
 
-function MainPage({ letters, setLetters }) {
+function MainPage() {
+  const data = useContext(Context);
+  const { letters, setLetters } = data;
+  // console.log(data);
+
   const [writedTo, setWritedTo] = useState("");
 
   // 카드 추가하기

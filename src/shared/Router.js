@@ -5,95 +5,22 @@ import ROSÉ from "pages/ROSÉ";
 import LISA from "pages/LISA";
 import Layout from "components/layout/Layout";
 import MainPage from "components/MainPage";
-import { useState } from "react";
-import fakeData from "../assets/json/fakeData.json";
-import { Context } from "context/Context";
+import LetterProvider from "context/Context";
 
 const Router = () => {
-  const [letters, setLetters] = useState(fakeData);
-
-  // letter 삭제하기 버튼
-  const removeBtn = (id) => {
-    const removeLetters = letters.filter((letter) => letter.id !== id);
-
-    setLetters(removeLetters);
-  };
-
-  // letter 수정하기 버튼
-  const updateBtn = (id) => {
-    const updatedLetters = letters.map((letter) => {
-      if (letter.id === id) {
-        return {
-          ...letter,
-          isUpdate: !letter.isUpdate,
-          content: letter.content,
-        };
-      }
-      return letter;
-    });
-    setLetters(updatedLetters);
-  };
-
-  const updatedLetters = (updatedLetters) => {
-    setLetters(updatedLetters);
-  };
-
   return (
     <BrowserRouter>
-      <Context.Provider>
+      <LetterProvider>
         <Layout>
           <Routes>
-            <Route
-              path="/"
-              element={<MainPage letters={letters} setLetters={setLetters} />}
-            />
-            <Route
-              path="/JENNIE/:id"
-              element={
-                <JENNIE
-                  letters={letters}
-                  removeBtn={removeBtn}
-                  updateBtn={updateBtn}
-                  updatedLetters={updatedLetters}
-                />
-              }
-            />
-            <Route
-              path="/JISOO/:id"
-              element={
-                <JISOO
-                  letters={letters}
-                  removeBtn={removeBtn}
-                  updateBtn={updateBtn}
-                  updatedLetters={updatedLetters}
-                />
-              }
-            />
-            <Route
-              path="/ROSÉ/:id"
-              element={
-                <ROSÉ
-                  letters={letters}
-                  removeBtn={removeBtn}
-                  updateBtn={updateBtn}
-                  updatedLetters={updatedLetters}
-                />
-              }
-            />
-            <Route
-              path="/LISA/:id"
-              element={
-                <LISA
-                  letters={letters}
-                  removeBtn={removeBtn}
-                  updateBtn={updateBtn}
-                  updatedLetters={updatedLetters}
-                />
-              }
-            />
+            <Route path="/" element={<MainPage />} />
+            <Route path="/JENNIE/:id" element={<JENNIE />} />
+            <Route path="/JISOO/:id" element={<JISOO />} />
+            <Route path="/ROSÉ/:id" element={<ROSÉ />} />
+            <Route path="/LISA/:id" element={<LISA />} />
           </Routes>
         </Layout>
-      </Context.Provider>
+      </LetterProvider>
     </BrowserRouter>
   );
 };

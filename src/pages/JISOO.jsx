@@ -1,8 +1,8 @@
 import DetailPage from "components/DetailPage";
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import fakeData from "assets/json/fakeData";
+import { Context } from "context/Context";
 
 const StDivContainer = styled.div`
   display: flex;
@@ -19,7 +19,10 @@ const StDiv = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 `;
-function JISOO({ letters, removeBtn, updateBtn, updatedLetters }) {
+function JISOO() {
+  const data = useContext(Context);
+  const { letters } = data;
+
   const params = useParams();
 
   //find
@@ -29,13 +32,7 @@ function JISOO({ letters, removeBtn, updateBtn, updatedLetters }) {
   return (
     <StDivContainer>
       <StDiv></StDiv>
-      <DetailPage
-        letters={letters}
-        foundData={foundData}
-        removeBtn={removeBtn}
-        updateBtn={updateBtn}
-        updatedLetters={updatedLetters}
-      />
+      <DetailPage foundData={foundData} />
     </StDivContainer>
   );
 }

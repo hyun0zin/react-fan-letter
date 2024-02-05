@@ -1,5 +1,6 @@
 import DetailPage from "components/DetailPage";
-import React from "react";
+import { Context } from "context/Context";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
@@ -18,7 +19,9 @@ const StDiv = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 `;
-function JENNIE({ letters, removeBtn, updateBtn, updatedLetters }) {
+function JENNIE() {
+  const data = useContext(Context);
+  const { letters } = data;
   const params = useParams();
 
   //find
@@ -27,13 +30,7 @@ function JENNIE({ letters, removeBtn, updateBtn, updatedLetters }) {
   return (
     <StDivContainer>
       <StDiv></StDiv>
-      <DetailPage
-        letters={letters}
-        foundData={foundData}
-        removeBtn={removeBtn}
-        updateBtn={updateBtn}
-        updatedLetters={updatedLetters}
-      />
+      <DetailPage foundData={foundData} />
     </StDivContainer>
   );
 }

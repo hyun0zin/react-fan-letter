@@ -1,8 +1,9 @@
 import DetailPage from "components/DetailPage";
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import fakeData from "assets/json/fakeData";
 import { useParams } from "react-router-dom";
+import { Context } from "context/Context";
 
 const StDivContainer = styled.div`
   display: flex;
@@ -19,7 +20,10 @@ const StDiv = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 `;
-function LISA({ letters, removeBtn, updateBtn, updatedLetters }) {
+function LISA() {
+  const data = useContext(Context);
+  const { letters } = data;
+
   const params = useParams();
 
   //find
@@ -29,13 +33,7 @@ function LISA({ letters, removeBtn, updateBtn, updatedLetters }) {
   return (
     <StDivContainer>
       <StDiv></StDiv>
-      <DetailPage
-        letters={letters}
-        foundData={foundData}
-        removeBtn={removeBtn}
-        updateBtn={updateBtn}
-        updatedLetters={updatedLetters}
-      />
+      <DetailPage foundData={foundData} />
     </StDivContainer>
   );
 }
