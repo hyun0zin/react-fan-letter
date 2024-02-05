@@ -1,7 +1,8 @@
 <h1>💌 그룹 아티스트 Fan Letter 만들기</h1>
 
-<div style="display:flex" ><img src="./src/assets/images/mainPage.png" />
-<img src="./src/assets/images/detailPage.png"/></div>
+<div>
+<img src="./src/assets/images/mainPage.png" align="center" width="50.8%"   /><img src="./src/assets/images/detailPage.png" align="center" width="49.2%" />
+</div>
 
 <br>
 
@@ -20,11 +21,16 @@
 
 #### 3. 작성 팬레터를 누르면 `상세페이지`로 이동한다.
 
+
 ### **✅ DetailPage**
 
 #### 1. `수정하기` 버튼을 누르면 내용 수정이 가능하고, `수정완료` 버튼을 누르면 수정된 상태로 홈 화면으로 이동한다.
 
 #### 2. `삭제하기` 버튼을 누르면 해당 letter는 삭제가 되고, 홈 화면으로 이동한다.
+
+### **✅ Header와 Footer**
+#### - Header : BLACKPINK 로고 누르면 MainPage 홈화면으로 이동
+#### - Footer : Youtube / Github / Blog 링크 연결
 
 <br>
 
@@ -32,7 +38,7 @@
 
 ### **`component` 구조 확인하기**
 
-<img src="./src/assets/images/components.png">
+<img src="./src/assets/images/components.png" align="center" width="70%" />
 
 <br>
 
